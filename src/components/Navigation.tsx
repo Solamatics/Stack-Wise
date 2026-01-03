@@ -119,7 +119,7 @@ export default function Navigation() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="block px-4 py-3 min-h-[48px] flex items-center text-gray-900 hover:bg-gray-50 hover:text-[#7C3AED] font-medium rounded-lg transition-colors touch-manipulation"
+                  className="flex px-4 py-3 min-h-12 items-center text-gray-900 hover:bg-gray-50 hover:text-[#7C3AED] font-medium rounded-lg transition-colors touch-manipulation"
                 >
                   {link.label}
                 </motion.a>
@@ -130,7 +130,7 @@ export default function Navigation() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
-                className="block px-4 py-3 min-h-[52px] flex items-center justify-center bg-[#10B981] text-white text-center font-semibold rounded-lg hover:bg-[#059669] transition-colors touch-manipulation"
+                className="flex px-4 py-3 min-h-13 items-center justify-center bg-[#10B981] text-white text-center font-semibold rounded-lg hover:bg-[#059669] transition-colors touch-manipulation"
               >
                 Get Early Access
               </motion.a>

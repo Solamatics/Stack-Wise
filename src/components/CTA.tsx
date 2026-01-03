@@ -68,7 +68,7 @@ export default function CTA() {
             onClick={handleCTAClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-10 py-5 min-h-[56px] bg-white text-[#7C3AED] text-lg font-bold rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-white/50 shadow-2xl touch-manipulation"
+            className="inline-flex items-center justify-center px-10 py-5 min-h-14 bg-white text-[#7C3AED] text-lg font-bold rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-white/50 shadow-2xl touch-manipulation"
           >
             Get Early Access Now
           </motion.a>

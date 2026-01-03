@@ -81,7 +81,7 @@ export default function Pricing() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`relative rounded-2xl p-8 ${
                   plan.isPopular
-                    ? "bg-gradient-to-br from-[#7C3AED] to-[#6B21A8] text-white shadow-2xl md:scale-105"
+                    ? "bg-linear-to-br from-[#7C3AED] to-[#6B21A8] text-white shadow-2xl md:scale-105"
                     : "bg-white border border-gray-200 shadow-lg"
                 }`}
               >
@@ -169,7 +169,7 @@ export default function Pricing() {
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start gap-3">
                       <div
-                        className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                        className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
                           plan.isPopular ? "bg-white/20" : "bg-[#10B981]/10"
                         }`}
                       >
