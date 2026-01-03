@@ -1,0 +1,11 @@
+# robots.txt for Stackwise
+
+User-agent: *
+Allow: /
+
+# Disallow admin areas (when implemented)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://stackwise.io/sitemap.xml
