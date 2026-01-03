@@ -148,7 +148,7 @@ export default function Hero() {
             >
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-[#10B981] rounded-full flex items-center justify-center">
+                  <div className="shrink-0 w-6 h-6 bg-[#10B981] rounded-full flex items-center justify-center">
                     <Check className="w-4 h-4 text-white" aria-hidden="true" />
                   </div>
                   <span className="text-white/90">{benefit}</span>
@@ -165,13 +165,13 @@ export default function Hero() {
             >
               <a
                 href="#hero"
-                className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-[#10B981] text-white font-semibold rounded-full hover:bg-[#059669] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 focus:ring-offset-[#7C3AED] touch-manipulation"
+                className="inline-flex items-center justify-center px-8 py-4 min-h-13 bg-[#10B981] text-white font-semibold rounded-full hover:bg-[#059669] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 focus:ring-offset-[#7C3AED] touch-manipulation"
               >
                 Get Early Access
               </a>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#7C3AED] touch-manipulation"
+                className="inline-flex items-center justify-center px-8 py-4 min-h-13 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#7C3AED] touch-manipulation"
               >
                 See How It Works
               </a>
@@ -289,7 +289,7 @@ export default function Hero() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full px-6 py-4 min-h-[52px] bg-[#7C3AED] text-white font-semibold rounded-lg hover:bg-[#6B21A8] transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2 flex items-center justify-center gap-2 touch-manipulation"
+                      className="w-full px-6 py-4 min-h-13 bg-[#7C3AED] text-white font-semibold rounded-lg hover:bg-[#6B21A8] transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2 flex items-center justify-center gap-2 touch-manipulation"
                     >
                       {isLoading ? (
                         <>
