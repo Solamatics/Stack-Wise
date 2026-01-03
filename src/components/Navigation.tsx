@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Calculator, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import type { NavLink } from '@/types';
+import { useState, useEffect } from "react";
+import { Calculator, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import type { NavLink } from "@/types";
 
 const navLinks: NavLink[] = [
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navigation() {
@@ -20,15 +20,18 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
   };
@@ -36,17 +39,17 @@ export default function Navigation() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-lg shadow-md'
-          : 'bg-transparent'
+        isScrolled ? "bg-white/80 backdrop-blur-lg shadow-md" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex items-center justify-between h-16 md:h-20 w-full">
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2 text-xl font-bold text-gray-900 hover:text-[#7C3AED] transition-colors"
+            className={`flex items-center gap-2 text-xl font-bold ${
+              isScrolled ? "text-gray-900" : "text-white"
+            } hover:text-[#7C3AED] transition-colors`}
             aria-label="Stackwise Home"
           >
             <Calculator className="w-6 h-6 text-[#7C3AED]" aria-hidden="true" />
@@ -60,7 +63,9 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-gray-600 hover:text-[#7C3AED] font-medium transition-colors relative group"
+                className={`${isScrolled ? "text-gray-600" : "text-white"} ${
+                  isScrolled ? "hover:text-[#7C3AED]" : "hover:text-white"
+                } font-medium transition-colors relative group`}
               >
                 {link.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#7C3AED] transition-all duration-300 group-hover:w-full" />
@@ -71,8 +76,8 @@ export default function Navigation() {
           {/* CTA Button */}
           <a
             href="#hero"
-            onClick={(e) => handleNavClick(e, '#hero')}
-            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-[#10B981] text-white font-semibold rounded-full hover:bg-[#059669] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2"
+            onClick={(e) => handleNavClick(e, "#hero")}
+            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-[#10B981] text-white font-semibold rounded-full hover:bg-[#059669] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 touch-manipulation"
           >
             Get Early Access
           </a>
@@ -80,8 +85,10 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-900 hover:text-[#7C3AED] transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C3AED] rounded-md"
-            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            className={`md:hidden p-2 min-w-11 flex items-center justify-center ${
+              isScrolled ? "text-gray-900" : "text-white"
+            } hover:text-[#7C3AED] transition-colors focus:outline-none focus:ring-2 focus:ring-[#7C3AED] rounded-md touch-manipulation`}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
@@ -98,9 +105,9 @@ export default function Navigation() {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="md:hidden bg-white border-t border-gray-200 shadow-lg overflow-hidden"
           >
             <div className="px-4 py-4 space-y-3">
@@ -112,18 +119,18 @@ export default function Navigation() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="block px-4 py-3 text-gray-900 hover:bg-gray-50 hover:text-[#7C3AED] font-medium rounded-lg transition-colors"
+                  className="block px-4 py-3 min-h-[48px] flex items-center text-gray-900 hover:bg-gray-50 hover:text-[#7C3AED] font-medium rounded-lg transition-colors touch-manipulation"
                 >
                   {link.label}
                 </motion.a>
               ))}
               <motion.a
                 href="#hero"
-                onClick={(e) => handleNavClick(e, '#hero')}
+                onClick={(e) => handleNavClick(e, "#hero")}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
-                className="block px-4 py-3 bg-[#10B981] text-white text-center font-semibold rounded-lg hover:bg-[#059669] transition-colors"
+                className="block px-4 py-3 min-h-[52px] flex items-center justify-center bg-[#10B981] text-white text-center font-semibold rounded-lg hover:bg-[#059669] transition-colors touch-manipulation"
               >
                 Get Early Access
               </motion.a>

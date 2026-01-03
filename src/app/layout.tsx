@@ -11,7 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Stackwise - Expense Tracker & Invoicing for Freelancers",
-  description: "Track expenses, generate professional invoices, and stay tax-compliant. The financial toolkit built for freelancers who earn globally and spend locally.",
+  description:
+    "Track expenses, generate professional invoices, and stay tax-compliant. The financial toolkit built for freelancers who earn globally and spend locally.",
   keywords: [
     "expense tracker",
     "freelancer",
@@ -31,7 +32,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Stackwise - Expense Tracker & Invoicing for Freelancers",
-    description: "Track expenses, generate professional invoices, and stay tax-compliant. Built for freelancers who earn globally and spend locally.",
+    description:
+      "Track expenses, generate professional invoices, and stay tax-compliant. Built for freelancers who earn globally and spend locally.",
     url: "https://stackwise.io",
     siteName: "Stackwise",
     images: [
@@ -48,7 +50,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Stackwise - Expense Tracker & Invoicing for Freelancers",
-    description: "Track expenses, generate professional invoices, and stay tax-compliant. Built for freelancers.",
+    description:
+      "Track expenses, generate professional invoices, and stay tax-compliant. Built for freelancers.",
     images: ["/og-image.png"],
     creator: "@stackwise",
   },
@@ -109,7 +112,8 @@ const jsonLd = {
         ratingValue: "5.0",
         ratingCount: "500",
       },
-      description: "Track expenses, generate professional invoices, and stay tax-compliant. Built for freelancers who earn globally and spend locally.",
+      description:
+        "Track expenses, generate professional invoices, and stay tax-compliant. Built for freelancers who earn globally and spend locally.",
     },
   ],
 };
@@ -120,25 +124,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#7C3AED" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        
+
         {/* TODO: Add Google Analytics */}
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> */}
       </head>
-      <body className={`${inter.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={`${inter.variable} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 export default function CTA() {
   const handleCTAClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const heroElement = document.querySelector('#hero');
+    const heroElement = document.querySelector("#hero");
     if (heroElement) {
-      heroElement.scrollIntoView({ behavior: 'smooth' });
+      heroElement.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    <section className="py-20 md:py-28 relative overflow-hidden w-full">
       {/* Gradient Background */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, #7C3AED 0%, #6B21A8 100%)',
+          background: "linear-gradient(135deg, #7C3AED 0%, #6B21A8 100%)",
         }}
       />
 
@@ -32,7 +32,7 @@ export default function CTA() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -44,7 +44,7 @@ export default function CTA() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -53,7 +53,7 @@ export default function CTA() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -68,7 +68,7 @@ export default function CTA() {
             onClick={handleCTAClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center justify-center px-10 py-5 bg-white text-[#7C3AED] text-lg font-bold rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-white/50 shadow-2xl"
+            className="inline-flex items-center justify-center px-10 py-5 min-h-[56px] bg-white text-[#7C3AED] text-lg font-bold rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-white/50 shadow-2xl touch-manipulation"
           >
             Get Early Access Now
           </motion.a>

@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Check, Loader2 } from 'lucide-react';
-import { waitlistSchema } from '@/lib/validations';
-import type { WaitlistFormData } from '@/types';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Check, Loader2 } from "lucide-react";
+import { waitlistSchema } from "@/lib/validations";
+import type { WaitlistFormData } from "@/types";
 
 export default function Hero() {
   const [formData, setFormData] = useState<WaitlistFormData>({
-    name: '',
-    email: '',
+    name: "",
+    email: "",
   });
   const [errors, setErrors] = useState<Partial<WaitlistFormData>>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -33,9 +33,9 @@ export default function Hero() {
     }
 
     try {
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -43,33 +43,33 @@ export default function Hero() {
 
       if (response.ok) {
         setIsSuccess(true);
-        setFormData({ name: '', email: '' });
+        setFormData({ name: "", email: "" });
       } else {
-        setErrors({ email: data.message || 'Something went wrong' });
+        setErrors({ email: data.message || "Something went wrong" });
       }
     } catch (error) {
-      setErrors({ email: 'Network error. Please try again.' });
+      setErrors({ email: "Network error. Please try again." });
     } finally {
       setIsLoading(false);
     }
   };
 
   const benefits = [
-    'Track multi-currency expenses',
-    'Generate professional invoices',
-    'Get Nigerian tax estimates',
+    "Track multi-currency expenses",
+    "Generate professional invoices",
+    "Get Nigerian tax estimates",
   ];
 
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden w-full"
       style={{
-        background: 'linear-gradient(135deg, #7C3AED 0%, #6B21A8 100%)',
+        background: "linear-gradient(135deg, #7C3AED 0%, #6B21A8 100%)",
       }}
     >
       {/* Animated background blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none w-full">
         <motion.div
           className="absolute top-20 left-10 w-72 h-72 bg-[#A78BFA] rounded-full opacity-20 blur-3xl"
           animate={{
@@ -80,7 +80,7 @@ export default function Hero() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -93,7 +93,7 @@ export default function Hero() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -135,7 +135,8 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg sm:text-xl text-white/90 mb-8"
             >
-              The financial toolkit built for freelancers who earn globally and spend locally.
+              The financial toolkit built for freelancers who earn globally and
+              spend locally.
             </motion.p>
 
             {/* Benefits */}
@@ -164,13 +165,13 @@ export default function Hero() {
             >
               <a
                 href="#hero"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#10B981] text-white font-semibold rounded-full hover:bg-[#059669] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 focus:ring-offset-[#7C3AED]"
+                className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-[#10B981] text-white font-semibold rounded-full hover:bg-[#059669] transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 focus:ring-offset-[#7C3AED] touch-manipulation"
               >
                 Get Early Access
               </a>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#7C3AED]"
+                className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white/10 backdrop-blur-sm text-white font-semibold rounded-full border-2 border-white/30 hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#7C3AED] touch-manipulation"
               >
                 See How It Works
               </a>
@@ -184,7 +185,8 @@ export default function Hero() {
               className="flex items-center gap-6 mt-8 text-white/80 text-sm"
             >
               <div>
-                <span className="font-semibold text-white">500+</span> on waitlist
+                <span className="font-semibold text-white">500+</span> on
+                waitlist
               </div>
               <div className="w-px h-4 bg-white/30" />
               <div>
@@ -198,21 +200,25 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="lg:flex lg:justify-end"
+            className="lg:flex lg:justify-end w-full"
           >
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
               {!isSuccess ? (
                 <>
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">
                     Join the Waitlist
                   </h2>
                   <p className="text-gray-600 mb-6">
-                    Be among the first to experience Stackwise. Launch: February 2026.
+                    Be among the first to experience Stackwise. Launch: February
+                    2026.
                   </p>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Full Name
                       </label>
                       <input
@@ -224,22 +230,31 @@ export default function Hero() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         className={`w-full px-4 py-3 border ${
-                          errors.name ? 'border-red-500' : 'border-gray-300'
+                          errors.name ? "border-red-500" : "border-gray-300"
                         } rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-transparent transition-colors text-gray-900`}
                         placeholder="John Doe"
                         autoComplete="name"
                         aria-invalid={!!errors.name}
-                        aria-describedby={errors.name ? 'name-error' : undefined}
+                        aria-describedby={
+                          errors.name ? "name-error" : undefined
+                        }
                       />
                       {errors.name && (
-                        <p id="name-error" className="mt-1 text-sm text-red-500" role="alert">
+                        <p
+                          id="name-error"
+                          className="mt-1 text-sm text-red-500"
+                          role="alert"
+                        >
                           {errors.name}
                         </p>
                       )}
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Email Address
                       </label>
                       <input
@@ -251,15 +266,21 @@ export default function Hero() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         className={`w-full px-4 py-3 border ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
+                          errors.email ? "border-red-500" : "border-gray-300"
                         } rounded-lg focus:ring-2 focus:ring-[#7C3AED] focus:border-transparent transition-colors text-gray-900`}
                         placeholder="john@example.com"
                         autoComplete="email"
                         aria-invalid={!!errors.email}
-                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        aria-describedby={
+                          errors.email ? "email-error" : undefined
+                        }
                       />
                       {errors.email && (
-                        <p id="email-error" className="mt-1 text-sm text-red-500" role="alert">
+                        <p
+                          id="email-error"
+                          className="mt-1 text-sm text-red-500"
+                          role="alert"
+                        >
                           {errors.email}
                         </p>
                       )}
@@ -268,15 +289,18 @@ export default function Hero() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full px-6 py-4 bg-[#7C3AED] text-white font-semibold rounded-lg hover:bg-[#6B21A8] transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2 flex items-center justify-center gap-2"
+                      className="w-full px-6 py-4 min-h-[52px] bg-[#7C3AED] text-white font-semibold rounded-lg hover:bg-[#6B21A8] transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2 flex items-center justify-center gap-2 touch-manipulation"
                     >
                       {isLoading ? (
                         <>
-                          <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
+                          <Loader2
+                            className="w-5 h-5 animate-spin"
+                            aria-hidden="true"
+                          />
                           <span>Joining...</span>
                         </>
                       ) : (
-                        'Join Waitlist'
+                        "Join Waitlist"
                       )}
                     </button>
 
@@ -298,7 +322,8 @@ export default function Hero() {
                     You're on the list!
                   </h3>
                   <p className="text-gray-600">
-                    Check your email for confirmation. We'll notify you when we launch in February 2026.
+                    Check your email for confirmation. We'll notify you when we
+                    launch in February 2026.
                   </p>
                 </motion.div>
               )}

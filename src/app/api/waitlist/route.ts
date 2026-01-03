@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { waitlistSchema } from '@/lib/validations';
+import { NextResponse } from "next/server";
+import { waitlistSchema } from "@/lib/validations";
 
 // Rate limiting: Simple in-memory store (use Redis in production)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
@@ -26,19 +26,22 @@ function checkRateLimit(ip: string): boolean {
 function sanitizeInput(input: string): string {
   return input
     .trim()
-    .replace(/[<>]/g, '') // Remove potential XSS characters
+    .replace(/[<>]/g, "") // Remove potential XSS characters
     .slice(0, 255); // Limit length
 }
 
 export async function POST(request: Request) {
   try {
     // Get IP address for rate limiting
-    const ip = request.headers.get('x-forwarded-for') || 'unknown';
-    
+    const ip = request.headers.get("x-forwarded-for") || "unknown";
+
     // Check rate limit
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
-        { success: false, message: 'Too many requests. Please try again later.' },
+        {
+          success: false,
+          message: "Too many requests. Please try again later.",
+        },
         { status: 429 }
       );
     }
@@ -54,10 +57,10 @@ export async function POST(request: Request) {
       }));
 
       return NextResponse.json(
-        { 
-          success: false, 
-          message: 'Validation failed', 
-          errors 
+        {
+          success: false,
+          message: "Validation failed",
+          errors,
         },
         { status: 400 }
       );
@@ -90,27 +93,31 @@ export async function POST(request: Request) {
     //   `,
     // });
 
-    console.log('New waitlist signup:', { name: sanitizedName, email: sanitizedEmail });
+    console.log("New waitlist signup:", {
+      name: sanitizedName,
+      email: sanitizedEmail,
+    });
 
     return NextResponse.json(
       {
         success: true,
-        message: 'Successfully joined the waitlist! Check your email for confirmation.',
+        message:
+          "Successfully joined the waitlist! Check your email for confirmation.",
       },
-      { 
+      {
         status: 200,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       }
     );
   } catch (error) {
-    console.error('Waitlist API error:', error);
+    console.error("Waitlist API error:", error);
 
     return NextResponse.json(
       {
         success: false,
-        message: 'An unexpected error occurred. Please try again later.',
+        message: "An unexpected error occurred. Please try again later.",
       },
       { status: 500 }
     );
@@ -120,7 +127,7 @@ export async function POST(request: Request) {
 // Handle unsupported methods
 export async function GET() {
   return NextResponse.json(
-    { success: false, message: 'Method not allowed' },
+    { success: false, message: "Method not allowed" },
     { status: 405 }
   );
 }

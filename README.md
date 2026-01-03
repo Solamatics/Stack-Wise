@@ -24,18 +24,20 @@
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -71,11 +73,13 @@ stack-wise/
 ## 🎨 Design System
 
 ### Colors
+
 - **Primary**: #7C3AED (Vibrant Purple)
 - **Accent**: #10B981 (Emerald Green)
 - **Text**: #111827 (Dark), #4B5563 (Secondary)
 
 ### Typography
+
 - **Font**: Inter (Google Fonts)
 - **Headings**: 700-800 weight
 - **Body**: 400-500 weight
@@ -83,9 +87,11 @@ stack-wise/
 ## 🔌 API Endpoints
 
 ### POST /api/waitlist
+
 Add a user to the waitlist.
 
 **Request Body:**
+
 ```json
 {
   "name": "John Doe",
@@ -94,12 +100,14 @@ Add a user to the waitlist.
 ```
 
 **Features:**
+
 - Zod validation
 - Rate limiting (100 req/hour per IP)
 - Input sanitization
 - XSS protection
 
 **TODO:**
+
 - [ ] Integrate database (Prisma + PostgreSQL)
 - [ ] Set up email service (Resend)
 

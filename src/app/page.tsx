@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import Pricing from '@/components/Pricing';
-import FAQ from '@/components/FAQ';
-import CTA from '@/components/CTA';
-import Footer from '@/components/Footer';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -19,12 +19,12 @@ export default function Home() {
       setShowScrollTop(window.scrollY > 500);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -65,7 +65,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 w-12 h-12 bg-[#7C3AED] text-white rounded-full shadow-lg hover:bg-[#6B21A8] transition-colors duration-300 flex items-center justify-center z-40 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2"
+            className="fixed bottom-6 right-6 md:bottom-8 md:right-8 w-12 h-12 md:w-14 md:h-14 bg-[#7C3AED] text-white rounded-full shadow-lg hover:bg-[#6B21A8] transition-colors duration-300 flex items-center justify-center z-40 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2 touch-manipulation"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-6 h-6" aria-hidden="true" />
@@ -75,4 +75,3 @@ export default function Home() {
     </>
   );
 }
-

@@ -24,7 +24,7 @@ export interface PricingPlan {
   features: string[];
   isPopular?: boolean;
   ctaText: string;
-  ctaVariant: 'primary' | 'secondary';
+  ctaVariant: "primary" | "secondary";
 }
 
 export interface FAQItem {

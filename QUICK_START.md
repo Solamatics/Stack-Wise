@@ -8,6 +8,7 @@ Your Stackwise landing page is ready to go! The development server is running at
 ## ✅ What's Working
 
 ### Components Built
+
 - ✅ **Navigation** - Sticky header with mobile menu
 - ✅ **Hero** - Gradient background with waitlist form
 - ✅ **Features** - 6 cards with icons and hover effects
@@ -17,6 +18,7 @@ Your Stackwise landing page is ready to go! The development server is running at
 - ✅ **Footer** - 4 columns with social links
 
 ### Functionality
+
 - ✅ **Smooth Scroll** - Navigate between sections
 - ✅ **Form Validation** - Client-side with Zod
 - ✅ **API Route** - POST /api/waitlist endpoint
@@ -28,6 +30,7 @@ Your Stackwise landing page is ready to go! The development server is running at
 ## 📋 Before You Launch
 
 ### 1. Add Content & Assets (Required)
+
 ```bash
 # Add these files to public/ folder:
 - favicon.ico
@@ -37,6 +40,7 @@ Your Stackwise landing page is ready to go! The development server is running at
 ```
 
 ### 2. Set Up Database (Required)
+
 ```bash
 # Install Prisma
 npm install prisma @prisma/client
@@ -57,6 +61,7 @@ npx prisma migrate dev
 ```
 
 Update [src/app/api/waitlist/route.ts](src/app/api/waitlist/route.ts) lines 66-72 with:
+
 ```typescript
 const waitlistEntry = await prisma.waitlist.create({
   data: {
@@ -68,6 +73,7 @@ const waitlistEntry = await prisma.waitlist.create({
 ```
 
 ### 3. Set Up Email Service (Required)
+
 ```bash
 # Install Resend (recommended)
 npm install resend
@@ -79,7 +85,9 @@ RESEND_API_KEY=re_your_api_key_here
 Update [src/app/api/waitlist/route.ts](src/app/api/waitlist/route.ts) lines 75-82 with your email logic.
 
 ### 4. Environment Variables
+
 Create `.env.local`:
+
 ```env
 # Database
 DATABASE_URL="postgresql://..."
@@ -94,20 +102,25 @@ NEXT_PUBLIC_GA_ID="G-..."
 ## 🎨 Customization
 
 ### Change Colors
+
 Edit [src/app/globals.css](src/app/globals.css) lines 10-17:
+
 ```css
---color-primary: #7C3AED;        /* Your primary color */
---color-accent: #10B981;         /* Your accent color */
+--color-primary: #7c3aed; /* Your primary color */
+--color-accent: #10b981; /* Your accent color */
 ```
 
 ### Update Copy
+
 - **Hero headline**: [src/components/Hero.tsx](src/components/Hero.tsx) line 113
 - **Features**: [src/components/Features.tsx](src/components/Features.tsx) lines 8-53
 - **Pricing**: [src/components/Pricing.tsx](src/components/Pricing.tsx) lines 7-45
 - **FAQ**: [src/components/FAQ.tsx](src/components/FAQ.tsx) lines 7-60
 
 ### Update Metadata (SEO)
+
 Edit [src/app/layout.tsx](src/app/layout.tsx) lines 12-70 for:
+
 - Page title
 - Description
 - Keywords
@@ -117,6 +130,7 @@ Edit [src/app/layout.tsx](src/app/layout.tsx) lines 12-70 for:
 ## 🧪 Testing Checklist
 
 ### Local Testing
+
 - [ ] Test all buttons and links
 - [ ] Submit waitlist form (success/error states)
 - [ ] Test mobile menu (hamburger)
@@ -127,6 +141,7 @@ Edit [src/app/layout.tsx](src/app/layout.tsx) lines 12-70 for:
 - [ ] Check responsiveness (375px, 768px, 1440px)
 
 ### Performance Testing
+
 ```bash
 # Build for production
 npm run build
@@ -139,6 +154,7 @@ npm run start
 ```
 
 ### Accessibility Testing
+
 - [ ] Use browser screen reader (VoiceOver on Mac, NVDA on Windows)
 - [ ] Check color contrast (use Chrome DevTools)
 - [ ] Install axe DevTools extension and run audit
@@ -147,6 +163,7 @@ npm run start
 ## 🚀 Deployment
 
 ### Deploy to Vercel (Easiest)
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -158,6 +175,7 @@ vercel
 ```
 
 Or:
+
 1. Push code to GitHub
 2. Go to [vercel.com](https://vercel.com)
 3. Click "Import Project"
@@ -166,6 +184,7 @@ Or:
 6. Deploy!
 
 ### Deploy to Netlify
+
 ```bash
 # Build command: npm run build
 # Publish directory: .next
@@ -176,11 +195,13 @@ Or:
 ## 📊 Analytics Setup (Optional)
 
 ### Google Analytics
+
 1. Get tracking ID from [Google Analytics](https://analytics.google.com)
 2. Add to `.env.local`: `NEXT_PUBLIC_GA_ID=G-...`
 3. Uncomment script in [src/app/layout.tsx](src/app/layout.tsx) line 120
 
 ### PostHog (Alternative)
+
 ```bash
 npm install posthog-js
 ```
@@ -188,6 +209,7 @@ npm install posthog-js
 ## 🐛 Troubleshooting
 
 ### Build Errors
+
 ```bash
 # Clear Next.js cache
 rm -rf .next
@@ -201,6 +223,7 @@ npm run build
 ```
 
 ### TypeScript Errors
+
 ```bash
 # Check types
 npm run build
@@ -211,6 +234,7 @@ npm run build
 ```
 
 ### Styling Issues
+
 - Make sure Tailwind CSS is processing correctly
 - Check browser console for CSS errors
 - Verify globals.css is imported in layout.tsx
@@ -218,6 +242,7 @@ npm run build
 ## 📞 Support
 
 For questions about this build:
+
 1. Check [BUILD_SUMMARY.md](BUILD_SUMMARY.md) for detailed info
 2. Review [README.md](README.md) for project overview
 3. Read component comments for implementation details
