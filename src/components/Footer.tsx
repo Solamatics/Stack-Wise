@@ -149,13 +149,13 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Stackwise. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm">
+            {/* <p className="text-gray-400 text-sm">
               Made with ❤️ for freelancers
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
